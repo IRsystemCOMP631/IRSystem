@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+</head>
+<body>
+{{ message }}
+<p>result found {{ numFound }}<p>
+{% for i in result_list %}
+    {{ i.id }}
+    <br>
+    {{ i.author_id }}
+    <br>
+    {{ i.text }}
+    <br>
+{% endfor %}
+<button onclick="window.location.href='../'" type="button" id="home">Home</button>
+</body>
+</html>
