@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from urllib.request import *
 import pysolr
+from . import utils
 
 
 # 表单
@@ -26,12 +27,17 @@ def add(request):
     return render(request, 'add.html', context)
 
 def add_solr(id, author_id, text):
+    #utils.add_solr(id,author_id,text)
     solr = pysolr.Solr('http://localhost:8983/solr/test2')
 
-    solr.add([
+    # print(type(id))
+    # print(type(author_id))
+    # print(type(text))
+    res = solr.add([
         {
             "id": id,
             "author_id": author_id,
             "text": text,
         }
     ])
+    print(res)
