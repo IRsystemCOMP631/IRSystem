@@ -24,6 +24,6 @@ def delete(request):
 
 def delete_solr(id):
     solr = pysolr.Solr('http://localhost:8983/solr/test2')
-    print(type(id))
+
     res = solr.delete(id=id)
     print(res)
