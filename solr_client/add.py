@@ -15,9 +15,9 @@ def add(request):
     request.encoding = 'utf-8'
     message = ''
     if 'id' in request.GET and request.GET['id'] and 'author_id' in request.GET and request.GET['author_id'] and 'text' in request.GET and request.GET['text']:
-        message += 'id is' + request.GET['id']
-        message += 'author_id is' + request.GET['author_id']
-        message += 'text is' + request.GET['text']
+        message += 'id is ' + request.GET['id'] + '\n'
+        message += 'author_id is ' + request.GET['author_id'] + '\n'
+        message += 'text is' + request.GET['text'] + '\n'
         add_solr(request.GET['id'], request.GET['author_id'], request.GET['text'])
     else:
         message = 'info wrong'

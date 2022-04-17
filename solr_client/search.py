@@ -32,11 +32,11 @@ def search(request):
     if 'id' in request.GET and request.GET['id']:
         id += request.GET['id']
     if text == "" and author_id == "" and id == "":
-            message = '你提交了空表单'
+            message = 'You submitted an empty form'
             # return HttpResponse(message)
     else:
 
-        message = '你搜索的内容为: ' + request.GET['text']
+        message = 'You are searching for: ' + request.GET['text']
         numFound, result_list = search_solr(text, author_id, id)
     context          = {}
     context['message'] = message
