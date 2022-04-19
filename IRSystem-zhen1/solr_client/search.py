@@ -94,7 +94,8 @@ def search_solr(text,auhor_id="",id=""):
         neutral_score = sentiment_result.confidence_scores.neutral
         sentiment_score += positive_score + neutral_score * 0.5
         result_list.append(document)
-    sentiment_score_avg = sentiment_score / len(response['response']['docs'])
+    n_docs = len(response['response']['docs'])
+    sentiment_score_avg = (sentiment_score / n_docs) if n_docs != 0 else 0
     return response['response']['numFound'],result_list, sentiment_score_avg
 
 def rep(s):
